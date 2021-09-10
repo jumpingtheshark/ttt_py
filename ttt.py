@@ -69,9 +69,8 @@ def check_victory(symbol):
 
 
 def main():
-    victory=False
     show_board()
-    while victory ==False:
+    while True:
         valid_input= False
         while valid_input == False:
             valid_input = ask_user()
@@ -80,7 +79,6 @@ def main():
 
         if (check_victory("X")==True):
             print ("we have victory, no point in going further!!! ")
-            victory=True
             break
 
         input ("press enter for the computer move please")
@@ -88,8 +86,7 @@ def main():
         show_board()
 
         if (check_victory("0") == True):
-            "print we have victory, no point in going further!!! "
-            victory=True
+            print ("we have victory, no point in going further!!! ")
             break
 
     #add_element(1,1)
