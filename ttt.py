@@ -1,10 +1,9 @@
 import random
-#bump
+from victory import test_win_right, test_win_left, test_win_horizontal, test_win_vertical
 
 board = [["*","*","*"],["*","*","*"],["*","*","*"]]
 
 #print (board )
-
 
 def check_spot(row, column):
     pass
@@ -50,10 +49,23 @@ def computer_move():
             board[row][column]="0"
             spot_found=True
 
-def check_victory():
+def check_victory(symbol):
     # there are 7 ways to win in tic tac toe
-    pass
+    rval = False
+    rval = test_win_left(board, symbol)
+    if rval:
+        return rval
 
+    rval = test_win_right(board,symbol)
+    if rval:
+        return rval
+
+    rval = test_win_horizontal(board, symbol)
+    if rval:
+        return rval
+
+    rval = test_win_vertical(board, symbol)
+    return rval
 
 
 def main():
@@ -65,13 +77,23 @@ def main():
             valid_input = ask_user()
         print ("input accepted")
         show_board()
+
+        if (check_victory("X")==True):
+            print ("we have victory, no point in going further!!! ")
+            victory=True
+            break
+
         input ("press enter for the computer move please")
         computer_move()
         show_board()
 
+        if (check_victory("0") == True):
+            "print we have victory, no point in going further!!! "
+            victory=True
+            break
+
     #add_element(1,1)
     #show_board()
-
 
 
 main()

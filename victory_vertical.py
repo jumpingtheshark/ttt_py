@@ -1,8 +1,6 @@
-board = [["1","#","13"],["21","#","23"],["*","#","$"]]
-
+board = [["*","#","$"],["*","#","$"],["*","#","$"]]
 
 game_over=False
-
 def all_same (cells, symbol):
     rval = True
     for i in range (0,3):
@@ -15,6 +13,6 @@ l=[]
 for i in range (0,3):
     l=[]
     for j in range(0,3):
-        l.append(board[i][j])
+        l.append(board[j][i])
     print (l)
-    print(all_same(l, board[i][0]))
+    print(all_same(l, l[i][0]))
